@@ -14,7 +14,7 @@ const DashBoard = () => {
   return (
     <div className="flex">
         {/* dashboard menu bar  */}
-      <div className="w-52 min-h-screen pt-10 px-3 bg-orange-300">
+      <div className="w-52 max-w-max pt-10 px-3 bg-orange-300">
         <ul className="space-y-7 text-lg p-2">
 
          { isAdmin? <> <li>
@@ -145,11 +145,7 @@ const DashBoard = () => {
            </> 
 }
 
-
           <div className="divider"></div>
-
-
-
 
           {/* shared nav links  */}
           <li>

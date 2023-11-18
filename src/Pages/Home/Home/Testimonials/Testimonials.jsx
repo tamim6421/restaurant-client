@@ -15,7 +15,7 @@ const Testimonials = () => {
     const[review, setReview] = useState([])
     const [rating, setRating] = useState(0);
     useEffect( () =>{
-        fetch('http://localhost:5000/review')
+        fetch('https://boss-restaurant.up.railway.app/review')
         .then(res => res.json())
         .then(data => {
             setReview(data)

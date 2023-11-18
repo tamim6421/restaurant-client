@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
-    const {signInUser} = useAuth()
+    const {signIn} = useAuth()
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -17,7 +17,7 @@ const Login = () => {
         const email = form.email.value 
         const password = form.password.value 
         console.log(email, password)
-        signInUser(email, password)
+        signIn(email, password)
         .then(res =>{
             const user = res.user 
             console.log(user)

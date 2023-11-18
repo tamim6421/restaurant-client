@@ -72,7 +72,7 @@ const router = createBrowserRouter([
             {
                 path:'updateItem/:id',
                 element:<AdminRoute> <UpdateItems></UpdateItems> </AdminRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
+                loader: ({params}) => fetch(`https://boss-restaurant.up.railway.app/menu/${params.id}`)
             }
         ]
     }

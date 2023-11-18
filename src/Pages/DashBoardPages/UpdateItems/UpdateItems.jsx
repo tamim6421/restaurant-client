@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxios from "../../../hooks/useAxios";
 import Swal from "sweetalert2";
-import { FaEdit, FaUpload } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -38,7 +38,7 @@ const UpdateItems = () => {
         const menuResponse = await axiosSecure.patch(`/menu/${_id}`, menuItem)
         console.log(menuResponse.data)
         if(menuResponse.data.modifiedCount > 0){
-            // reset()
+            reset()
             //show success popup
             Swal.fire({
               position: "top-end",
@@ -125,7 +125,7 @@ const UpdateItems = () => {
                 </div>
 
                 <div className="form-control w-full " >
-                <input defaultValue={image} type="file" {...register("image", { required: true })} className="file-input mt-5 file-input-bordered file-input-warning w-full max-w-xs" />
+                <input  type="file" {...register("image", { required: true })} className="file-input mt-5 file-input-bordered file-input-warning w-full max-w-xs" />
                 </div>
 
                     <button className="btn bg-orange-400 text-white px-8 mt-5">Update Menu items <FaEdit></FaEdit> </button>

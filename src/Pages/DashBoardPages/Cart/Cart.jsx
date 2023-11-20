@@ -2,6 +2,8 @@ import Swal from "sweetalert2";
 import useAxios from "../../../hooks/useAxios";
 import useCart from "../../../hooks/useCart";
 import { FaTrashAlt } from "react-icons/fa";
+import Title from "../../../components/Title/Title";
+import { Link } from "react-router-dom";
 
 
 const Cart = () => {
@@ -39,20 +41,24 @@ const Cart = () => {
             });      
     }
     return (
-        <div>
+        <div className=" px-8">
+          <Title title={'here your Food'} subtitle={"Your Ordered Food"}></Title>
           <div className="flex justify-evenly mt-10">
             <h1 className="text-2xl font-semibold">Total Cart : {cart.length} </h1>
            <h1 className="text-2xl font-semibold">Total Price : ${totalPrice}</h1>
            <div>
-            <button className="btn btn-xs btn-error text-white">Payment</button>
+           {
+            cart.length? <Link to='/dashboard/payment'>  <button className="btn btn-sm px-7 btn-error text-white">Payment</button></Link>:
+            <button disabled  className="btn btn-sm px-7  btn-error text-white">Payment</button>
+           }
            </div>
           </div>
 
-          <div>
-          <div className="overflow-x-auto mt-4">
+          <div className="shadow-lg">
+          <div className="overflow-x-auto mt-4 bg-green-100">
         <table className="table ">
           {/* head */}
-          <thead className="w-full bg-gray-100  text-xl">
+          <thead className="w-full bg-green-400 text-white text-xl">
             <tr>
               <th>
               Items
@@ -67,7 +73,7 @@ const Cart = () => {
             {
                 cart?.map((item, idx) =>  <tr key={item._id}>
                     <th>
-                        {idx + 1}
+                        {idx + 1}.
                     </th>
                     <td>
                       <div className="flex items-center gap-3">
@@ -85,9 +91,9 @@ const Cart = () => {
                     <td>
                    {item.name}
                     </td>
-                    <td>{item.price}</td>
+                    <td>$ {item.price}</td>
                     <th>
-                      <button onClick={() =>handelDelete(item._id)} className="btn  p-2"> <FaTrashAlt className="text-2xl text-red-500"></FaTrashAlt> </button>
+                      <button onClick={() =>handelDelete(item._id)} className="btn  p-2"> <FaTrashAlt className=" text-red-500"></FaTrashAlt> </button>
                     </th>
                   </tr>)
             }

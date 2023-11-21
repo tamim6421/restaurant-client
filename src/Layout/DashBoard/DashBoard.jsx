@@ -14,7 +14,7 @@ const DashBoard = () => {
   return (
     <div className="flex">
         {/* dashboard menu bar  */}
-      <div className="w-52 max-w-max pt-10 px-3 bg-orange-300">
+      <div className="w-52 pt-10 px-3 bg-orange-300">
         <ul className="space-y-7 text-lg p-2">
 
           {/* admin only routes */}
@@ -22,7 +22,7 @@ const DashBoard = () => {
             <NavLink
               to="/dashboard/adminHome"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : "hover:bg-gray-800 hover:text-white"
+                isPending ? "pending" : isActive ? "active  text-white font-bold" : "hover:bg-gray-800 hover:text-white"
               }
             >
             <span className="flex items-center gap-2"> <FaHome className="text-2xl"></FaHome> 
@@ -33,7 +33,7 @@ const DashBoard = () => {
             <NavLink
               to="/dashboard/addItems"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : "hover:bg-gray-800 hover:text-white"
+                isPending ? "pending" : isActive ? "active  text-white font-bold" : "hover:bg-gray-800 hover:text-white"
               }
             >
             <span className="flex items-center gap-2"> <FaUtensils className="text-2xl"></FaUtensils> 
@@ -82,7 +82,7 @@ const DashBoard = () => {
             <NavLink
               to="/dashboard/userHome"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : "hover:bg-gray-800 hover:text-white"
+                isPending ? "pending" : isActive ? "active text-white font-bold " : "hover:bg-gray-800 hover:text-white"
               }
             >
             <span className="flex items-center gap-2"> <BiHomeAlt className="text-2xl"></BiHomeAlt> 

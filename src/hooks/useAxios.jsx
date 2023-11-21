@@ -6,7 +6,10 @@ const axiosSecure = axios.create({
   baseURL: "https://restaurant-p-server.vercel.app",
 });
 
+
 // https://restaurant-p-server.vercel.app
+// https://restaurant-p-server.vercel.app
+
 
 const useAxios = () => {
   const navigate = useNavigate();
@@ -37,7 +40,7 @@ const useAxios = () => {
       // for 401 or 403 logout the user and move the user to the login
       if (status === 401 || status === 403) {
         await logOut();
-        navigate("/login");
+        navigate("/");
       }
       return Promise.reject(error);
     }

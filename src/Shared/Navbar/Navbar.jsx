@@ -2,10 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import useCart from "../../hooks/useCart";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
   const {user, logOut} = useAuth()
   const [cart, refetch] = useCart()
+  const [isAdmin] = useAdmin()
   
     const links = <>
          <li>
@@ -83,15 +85,22 @@ const Navbar = () => {
           
         </div>
       </label>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content text-sm  space-y-2 mt-3 z-[1] p-2 shadow bg-orange-200 rounded-box min-w-min">
+      <ul tabIndex={0} className="menu  dropdown-content text-sm w-[350px]  space-y-2 mt-3 z-[1] p-2 shadow bg-orange-200 rounded-box max-w-max">
         <li>
         {
                   user.displayName == null ? <button className="btn btn-sm text-white bg-orange-500"> User </button> :<button className="btn btn-sm  text-white bg-orange-500">  {user.displayName} </button>
                 }
               </li>
-              <li>
-              <button className="btn btn-sm text-white bg-orange-400" > {user.email} </button>
-              </li>
+              {
+                user && isAdmin && <li className="w-full">
+               <Link to='/dashboard/adminHome' > <button className="btn btn-sm text-white bg-orange-400" > Admin Profile</button></Link>
+                </li>
+              }
+              {
+                 user && !isAdmin && <li className="w-full">
+                 <Link to='/dashboard/userHome'><button className="btn btn-sm text-white bg-orange-400" > User Profile</button></Link>
+                 </li>
+              }
               <li className="w-full">
                <button
               onClick={logOut}

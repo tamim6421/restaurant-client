@@ -3,10 +3,10 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
-  baseURL: "https://boss-restaurant.up.railway.app",
+  baseURL: "http://localhost:5000",
 });
 
-// https://boss-restaurant.up.railway.app
+// http://localhost:5000
 
 const useAxios = () => {
   const navigate = useNavigate();

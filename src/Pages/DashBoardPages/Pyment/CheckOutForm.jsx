@@ -133,9 +133,9 @@ const CheckOutForm = () => {
           },
         }}
       />
-      <button className="bg-green-500 text-white btn btn-sm px-7 mt-5 " type="submit" disabled={!stripe || !clientSecret}>
-        Pay
-      </button>
+        <button className="btn btn-warning btn-sm px-4 mt-3" type="submit" disabled={!stripe || !clientSecret}>
+          Pay
+        </button>
         <p className="text-red-500">{error}</p>
         {transactionId && <p className="text-green-500"> Your Transaction id : {transactionId}</p> }
 

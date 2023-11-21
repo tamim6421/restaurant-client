@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPublic = axios.create({
-    baseURL:'https://boss-restaurant.up.railway.app',
+    baseURL:'http://localhost:5000',
 })
 
 const useAxiosPublic = () => {

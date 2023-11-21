@@ -17,7 +17,7 @@ const CheckOutForm = () => {
     const [cart, refetch] = useCart()
     const {user} = useAuth()
 
-
+    console.log(cart)
 
     const totalPrice = cart.reduce( (total, item) => total + item.price ,0)
     const itemName = cart.map(item => item.name)
@@ -91,7 +91,7 @@ const CheckOutForm = () => {
                     date: new Date(), //convert utc dates at moment js 
                     transactionId: paymentIntent.id,
                     cartIds: cart.map(item => item._id),
-                    menuItemIds: cart.map(item => item.cartId),
+                    menuItemIds: cart.map(item => item.menuId),
                     status: 'pending',
                 }
 
